@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 
 class languagesBox extends StatefulWidget {
   languagesBox(
-      {required this.Title, required this.imagePath, required this.subTitle});
+      {required this.Title,
+      required this.imagePath1,
+      required this.imagePath2,
+      required this.imagePath3,
+      required this.subTitle});
   String Title;
   String subTitle;
-  String imagePath;
+  String imagePath1;
+  String imagePath2;
+  String imagePath3;
 
   @override
   State<languagesBox> createState() => _languagesBoxState();
@@ -19,27 +25,58 @@ class _languagesBoxState extends State<languagesBox> {
       width: 140,
       height: 140,
       decoration: BoxDecoration(
+        gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Color(0xff191720),
+              Color.fromARGB(255, 80, 6, 122),
+              Color.fromARGB(255, 87, 23, 117)
+            ]),
+        // color: Color.fromARGB(255, 123, 61, 215),
+        boxShadow: [
+          BoxShadow(
+              offset: Offset(0, 0),
+              blurRadius: 7,
+              color: Color.fromARGB(255, 106, 7, 163))
+        ],
         borderRadius: BorderRadius.circular(33),
-        border: Border.all(color: Colors.blueGrey),
+        // border: Border.all(color: Colors.blueGrey),
       ),
       child: Column(
         children: [
           Text(
             widget.Title,
             style: TextStyle(
-                fontSize: 20, color: Colors.black, fontWeight: FontWeight.w500),
+              fontSize: 20,
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          SizedBox(
+            height: 5,
           ),
           Text(
             widget.subTitle,
             style: TextStyle(
-                fontSize: 15,
-                color: Colors.black87,
-                fontWeight: FontWeight.w400),
+                fontSize: 15, color: Colors.white, fontWeight: FontWeight.w500),
           ),
-          Image.asset(
-            widget.imagePath,
-            fit: BoxFit.fitWidth,
-            height: 80,
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              CircleAvatar(
+                foregroundImage: AssetImage(widget.imagePath1),
+              ),
+              CircleAvatar(
+                foregroundImage: AssetImage(widget.imagePath2),
+              ),
+              CircleAvatar(
+                foregroundImage: AssetImage(widget.imagePath3),
+              ),
+            ],
           )
         ],
       ),
@@ -65,12 +102,19 @@ class _coursesBoxState extends State<coursesBox> {
       onTap: () {}, //TODO: Navigator
       child: Container(
         // padding: EdgeInsets.all(8),
-        margin: EdgeInsets.only(left: 33),
+        margin: EdgeInsets.only(left: 33, bottom: 10),
         width: 240,
         height: 200,
         decoration: BoxDecoration(
+          color: Color(0xff191720),
           borderRadius: BorderRadius.circular(33),
-          border: Border.all(color: Colors.blueGrey),
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(0, 0),
+                blurRadius: 7,
+                color: Color.fromARGB(255, 106, 7, 163))
+          ],
+          // border: Border.all(color: Colors.blueGrey),
         ),
         child: Column(
           children: [
@@ -86,13 +130,19 @@ class _coursesBoxState extends State<coursesBox> {
                       image: AssetImage(widget.imagePath), fit: BoxFit.cover)),
             ),
             ListTile(
-              subtitle: Text(widget.subTitle),
-              title: Text(widget.Title),
+              subtitle: Text(
+                widget.subTitle,
+                style: TextStyle(color: Colors.white),
+              ),
+              title: Text(
+                widget.Title,
+                style: TextStyle(color: Colors.white),
+              ),
               trailing: IconButton(
                   onPressed: () {},
                   icon: Icon(
                     Icons.notification_add,
-                    color: Colors.blueGrey[900],
+                    color: Colors.white,
                   )),
               onTap: () {
                 setState(() {});
@@ -116,12 +166,19 @@ class reviesBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         // padding: EdgeInsets.all(8),
-        margin: EdgeInsets.only(left: 33),
+        margin: EdgeInsets.only(left: 33, top: 12, bottom: 12),
         width: 300,
         height: 200,
         decoration: BoxDecoration(
+          color: Color(0xff191720),
           borderRadius: BorderRadius.circular(33),
-          border: Border.all(color: Colors.blueGrey),
+          // border: Border.all(color: Colors.blueGrey),
+          boxShadow: [
+            BoxShadow(
+                offset: Offset(0, 0),
+                blurRadius: 7,
+                color: Color.fromARGB(255, 106, 7, 163))
+          ],
         ),
         child: Column(
           children: [
@@ -130,7 +187,7 @@ class reviesBox extends StatelessWidget {
                 Title,
                 style: TextStyle(
                     fontSize: 20,
-                    color: Colors.black,
+                    color: Colors.white,
                     fontWeight: FontWeight.w500),
               ),
               subtitle: Row(
@@ -155,7 +212,10 @@ class reviesBox extends StatelessWidget {
                     Icons.star,
                     color: Colors.yellowAccent.shade700,
                   ),
-                  Text("Today")
+                  Text(
+                    "Today",
+                    style: TextStyle(color: Colors.white),
+                  )
                 ],
               ),
               leading: CircleAvatar(
@@ -169,7 +229,7 @@ class reviesBox extends StatelessWidget {
                 subTitle,
                 style: TextStyle(
                     fontSize: 16,
-                    color: Colors.black87,
+                    color: Colors.white,
                     fontWeight: FontWeight.w400),
               ),
             )

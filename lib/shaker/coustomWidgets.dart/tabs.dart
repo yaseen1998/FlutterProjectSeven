@@ -17,8 +17,9 @@ class _HomeTabState extends State<HomeTab> {
           "Top Languages ",
           style: TextStyle(
               fontSize: 20,
-              color: Colors.blueGrey[900],
-              fontWeight: FontWeight.w500),
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+              shadows: []),
         ),
         SizedBox(
           height: 20,
@@ -28,14 +29,18 @@ class _HomeTabState extends State<HomeTab> {
           children: [
             languagesBox(
                 Title: "English",
-                imagePath: "images/english Speakers.jpg",
+                imagePath1: "images/united-states.png",
+                imagePath2: "images/united-kingdom.png",
+                imagePath3: "images/canada.png",
                 subTitle: "1.35 billion"),
             SizedBox(
               width: 17,
             ),
             languagesBox(
                 Title: "Mandarin ",
-                imagePath: "images/mandarin Speakers.jpg",
+                imagePath1: "images/china.png",
+                imagePath2: "images/singapore.png",
+                imagePath3: "images/hong-kong.png",
                 subTitle: "1,117 billion"),
           ],
         ),
@@ -47,28 +52,30 @@ class _HomeTabState extends State<HomeTab> {
           children: [
             languagesBox(
                 Title: "Hindi",
-                imagePath: "images/hindi Speakers.jpg",
+                imagePath1: "images/india.png",
+                imagePath2: "images/nepal.png",
+                imagePath3: "images/mauritius.png",
                 subTitle: "615 million"),
             SizedBox(
               width: 17,
             ),
             languagesBox(
                 Title: "Spanish",
-                imagePath: "images/spanish Speakers.jpg",
+                imagePath1: "images/spain.png",
+                imagePath2: "images/argentina.png",
+                imagePath3: "images/chile.png",
                 subTitle: "534 million"),
           ],
         ),
         Divider(
           height: 20,
-          color: Colors.grey,
+          // color: Colors.grey,
           thickness: 1,
         ),
         Text(
           "Top Corses",
           style: TextStyle(
-              fontSize: 20,
-              color: Colors.blueGrey[900],
-              fontWeight: FontWeight.w500),
+              fontSize: 20, color: Colors.white, fontWeight: FontWeight.w700),
         ),
         Divider(
           height: 20,
@@ -77,15 +84,13 @@ class _HomeTabState extends State<HomeTab> {
         coursesTab(),
         Divider(
           height: 20,
-          color: Colors.grey,
+          // color: Colors.grey,
           thickness: 1,
         ),
         Text(
           "Reviews",
           style: TextStyle(
-              fontSize: 20,
-              color: Colors.blueGrey[900],
-              fontWeight: FontWeight.w500),
+              fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
         ),
         Divider(
           height: 20,
@@ -95,7 +100,11 @@ class _HomeTabState extends State<HomeTab> {
           height: 20,
           color: Colors.transparent,
         ),
-        reviewsTab()
+        reviewsTab(),
+        Divider(
+          height: 20,
+          color: Colors.transparent,
+        ),
       ],
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/shaker/coustomWidgets.dart/tabs.dart';
+import 'package:ionicons/ionicons.dart';
 
 class coursesScreen extends StatefulWidget {
   const coursesScreen({super.key});
@@ -14,17 +15,26 @@ class _coursesScreenState extends State<coursesScreen> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: Color(0xff191720),
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Color.fromARGB(255, 43, 38, 61),
           title: Column(
             children: [
-              Text(
-                "Welcome Back",
-                style: TextStyle(fontSize: 14, color: Colors.grey[800]),
+              Row(
+                children: [
+                  Text(
+                    "Welcome Back",
+                    style: TextStyle(fontSize: 12, color: Colors.white),
+                  ),
+                ],
               ),
-              Text(
-                "shrek",
-                style: TextStyle(fontSize: 25, color: Colors.black),
+              Row(
+                children: [
+                  Text(
+                    "shrek",
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
+                ],
               )
             ],
           ),
@@ -38,18 +48,20 @@ class _coursesScreenState extends State<coursesScreen> {
         bottomNavigationBar: SizedBox(
           height: 50,
           child: AppBar(
-            backgroundColor: Colors.white,
-            title: TabBar(indicatorSize: TabBarIndicatorSize.label, tabs: [
-              Icon(
-                Icons.home_outlined,
-                color: Colors.black,
-              ),
-              Image(
-                image: NetworkImage(
-                    "https://cdn-icons-png.flaticon.com/512/2374/2374322.png"),
-                width: 26,
-              )
-            ]),
+            backgroundColor: Color.fromARGB(255, 43, 38, 61),
+            title: TabBar(
+                indicatorSize: TabBarIndicatorSize.label,
+                indicatorColor: Color.fromARGB(255, 188, 73, 255),
+                tabs: [
+                  Icon(
+                    Icons.home_outlined,
+                    color: Colors.white,
+                  ),
+                  Icon(
+                    Ionicons.book_outline,
+                    color: Colors.white,
+                  )
+                ]),
           ),
         ),
         body: Padding(
@@ -88,9 +100,7 @@ class _GradesTabState extends State<GradesTab> {
         Text(
           "Grades",
           style: TextStyle(
-              fontSize: 20,
-              color: Colors.blueGrey[900],
-              fontWeight: FontWeight.w500),
+              fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
         ),
         ListView.separated(
           shrinkWrap: true,
@@ -101,11 +111,11 @@ class _GradesTabState extends State<GradesTab> {
               children: [
                 Text(
                   "${widget.courseName[index]} :",
-                  style: TextStyle(fontSize: 18, color: Colors.black),
+                  style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
                 Text(
                   "${widget.courseMark[index]}",
-                  style: TextStyle(fontSize: 18, color: Colors.black),
+                  style: TextStyle(fontSize: 18, color: Colors.white),
                 )
               ],
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
