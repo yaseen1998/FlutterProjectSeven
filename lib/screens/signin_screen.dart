@@ -8,10 +8,16 @@ import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 
 class SignInScreen extends StatefulWidget {
+  final Function(String) onChangemail;
+  final Function(String) onChangePassword;
   final List youremail;
   final List Password;
-  SignInScreen({Key? key, required this.youremail, required this.Password})
-      : super(key: key);
+  SignInScreen(
+      {super.key,
+      required this.onChangemail,
+      required this.onChangePassword,
+      required this.youremail,
+      required this.Password});
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -97,16 +103,22 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   const SizedBox(width: 7),
                   GestureDetector(
-                    // onTap: () {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) {
-                    //         return Registration_Ppage();
-                    //       },
-                    //     ),
-                    //   );
-                    // },
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return Registration_Ppage(
+                            onChangemail: (value) {
+                              widget.onChangemail(value);
+                            },
+                            onChangePassword: (value) {
+                              widget.onChangePassword(value);
+                            },
+                            youremail: widget.youremail,
+                            Password: widget.Password,
+                          );
+                        },
+                      ));
+                    },
                     child: const Text(
                       "Register.",
                       style: TextStyle(color: Colors.lightBlue),
@@ -123,10 +135,10 @@ class _SignInScreenState extends State<SignInScreen> {
                     if (widget.youremail.contains(myemail) &&
                         widget.Password.contains(myPassword)) {
                       Navigator.push(context, MaterialPageRoute(
-                      builder: (context) {
-                        return coursesScreen();
-                      },
-                    ));
+                        builder: (context) {
+                          return coursesScreen();
+                        },
+                      ));
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(

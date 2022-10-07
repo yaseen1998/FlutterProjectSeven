@@ -4,7 +4,6 @@ import 'package:page_transition/page_transition.dart';
 import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 
-
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 
@@ -12,8 +11,8 @@ class WelcomeScreen extends StatefulWidget {
   State<WelcomeScreen> createState() => _WelcomeScreentate();
 }
 
-class _WelcomeScreentate extends State<WelcomeScreen>  {
-List youremail = ['test'];
+class _WelcomeScreentate extends State<WelcomeScreen> {
+  List youremail = ['test'];
   List Password = ['test'];
   String myemail = '';
   String myPassword = '';
@@ -40,64 +39,73 @@ List youremail = ['test'];
                 ],
               ),
               Container(
-      height: 60,
-      margin: const EdgeInsets.symmetric(vertical: 50),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: Colors.grey.shade800,
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: TextButtonWidget(
-              backgroundColor: Colors.white,
-              buttonLabel: "Register",
-              onTap: () {
-                Navigator.push(
-                  context,
-                  PageTransition(
-                    child: Registration_Ppage(
-                       onChangemail: (value) {
-                            setState(() {
-                             youremail.add(value);
-                            });
-                          },
-                          onChangePassword: (value) {
-                            setState(() {
-                              Password.add(value);
-                            });
-                          },
-                          youremail: youremail,
-                          Password: Password,
+                height: 60,
+                margin: const EdgeInsets.symmetric(vertical: 50),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.grey.shade800,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextButtonWidget(
+                        backgroundColor: Colors.white,
+                        buttonLabel: "Register",
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              child: Registration_Ppage(
+                                onChangemail: (value) {
+                                  setState(() {
+                                    youremail.add(value);
+                                  });
+                                },
+                                onChangePassword: (value) {
+                                  setState(() {
+                                    Password.add(value);
+                                  });
+                                },
+                                youremail: youremail,
+                                Password: Password,
+                              ),
+                              type: PageTransitionType.bottomToTop,
+                            ),
+                          );
+                        },
+                      ),
                     ),
-                    type: PageTransitionType.bottomToTop,
-                  ),
-                );
-              },
-            ),
-          ),
-          Expanded(
-            child: TextButtonWidget(
-              backgroundColor: Colors.transparent,
-              buttonLabel: "Sign In",
-              onTap: () {
-                Navigator.push(
-                  context,
-                  PageTransition(
-                    type: PageTransitionType.bottomToTop,
-                    child: SignInScreen(
-                      youremail: youremail,
-                          Password: Password,
-                          
+                    Expanded(
+                      child: TextButtonWidget(
+                        backgroundColor: Colors.transparent,
+                        buttonLabel: "Sign In",
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.bottomToTop,
+                              child: SignInScreen(
+                                onChangemail: (value) {
+                                  setState(() {
+                                    youremail.add(value);
+                                  });
+                                },
+                                onChangePassword: (value) {
+                                  setState(() {
+                                    Password.add(value);
+                                  });
+                                },
+                                youremail: youremail,
+                                Password: Password,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    )
+                  ],
+                ),
+              )
             ],
           ),
         ),
@@ -105,5 +113,3 @@ List youremail = ['test'];
     );
   }
 }
-
-

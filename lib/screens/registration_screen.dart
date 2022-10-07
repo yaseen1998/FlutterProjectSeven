@@ -10,7 +10,11 @@ class Registration_Ppage extends StatefulWidget {
   final List youremail;
   final List Password;
   Registration_Ppage(
-      {super.key, required this.onChangemail, required this.onChangePassword,required this.youremail, required this.Password});
+      {super.key,
+      required this.onChangemail,
+      required this.onChangePassword,
+      required this.youremail,
+      required this.Password});
 
   @override
   State<Registration_Ppage> createState() => _Registration_PpageState();
@@ -71,12 +75,11 @@ class _Registration_PpageState extends State<Registration_Ppage> {
                           height: 25,
                         ),
                         LoginField(
-                           onChangedInput: (value) {
-                          widget.onChangemail(value);
-                              },
+                            onChangedInput: (value) {
+                              widget.onChangemail(value);
+                            },
                             hintText: "Email",
                             inputType: TextInputType.emailAddress),
-                        
                         const SizedBox(
                           height: 25,
                         ),
@@ -88,8 +91,8 @@ class _Registration_PpageState extends State<Registration_Ppage> {
                         ),
                         PasswordLogin(
                           onChangedInput: (value) {
-                          widget.onChangePassword(value);
-                              },
+                            widget.onChangePassword(value);
+                          },
                           isPasswordVisible: passwordvisible,
                           onTap: () {
                             setState(() {
@@ -102,16 +105,16 @@ class _Registration_PpageState extends State<Registration_Ppage> {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const[
-                       Text(
+                    children: const [
+                      Text(
                         "You already have an account? ",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
-                       Text(
+                      Text(
                         "sign in",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
-                       SizedBox(
+                      SizedBox(
                         height: 50,
                       ),
                     ],
@@ -123,14 +126,19 @@ class _Registration_PpageState extends State<Registration_Ppage> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return  SignInScreen(
-                      youremail: widget.youremail,
-                          Password: widget.Password,
-                    );
+                            return SignInScreen(
+                              onChangemail: (value) {
+                                widget.onChangemail(value);
+                              },
+                              onChangePassword: (value) {
+                                widget.onChangePassword(value);
+                              },
+                              youremail: widget.youremail,
+                              Password: widget.Password,
+                            );
                           },
                         ),
                       );
-                    
                     },
                     backgroundColor: Colors.white,
                   ),
