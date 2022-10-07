@@ -59,7 +59,7 @@ class _ButtonWidget extends StatelessWidget {
                 Navigator.push(
                   context,
                   PageTransition(
-                    child: Registration_Ppage(),
+                    child: const RegistrationScreen(),
                     type: PageTransitionType.bottomToTop,
                   ),
                 );

@@ -2,118 +2,103 @@ import 'package:flutter/material.dart';
 import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 
-class Registration_Ppage extends StatefulWidget {
-  const Registration_Ppage({super.key});
+class RegistrationScreen extends StatefulWidget {
+  const RegistrationScreen({super.key});
 
   @override
-  State<Registration_Ppage> createState() => _Registration_PpageState();
+  State<RegistrationScreen> createState() => _RegistrationScreenState();
 }
 
-class _Registration_PpageState extends State<Registration_Ppage> {
-  bool passwordvisible = true;
+class _RegistrationScreenState extends State<RegistrationScreen> {
+  bool isPasswordVisible = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 1,
-        backgroundColor: Color(0xff191720),
+        elevation: 0,
+        backgroundColor: const Color(0xff191720),
         leading: IconButton(
             onPressed: () {
               Navigator.pop(
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return WelcomeScreen();
+                    return const WelcomeScreen();
                   },
                 ),
               );
             },
             icon: const Icon(Icons.arrow_back)),
       ),
-      backgroundColor: Color(0xff191720),
+      backgroundColor: const Color(0xff191720),
       body: SafeArea(
-          child: CustomScrollView(
-        slivers: [
-          SliverFillRemaining(
-            hasScrollBody: false,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Column(
+            children: [
+              Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Create a new account",
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                    const SizedBox(height: 20),
+                    const TextFieldWidget(
+                      hintText: "Full Name",
+                      inputType: TextInputType.name,
+                    ),
+                    const TextFieldWidget(
+                      hintText: "Email",
+                      inputType: TextInputType.emailAddress,
+                    ),
+                    const TextFieldWidget(
+                      hintText: "Phone number",
+                      inputType: TextInputType.phone,
+                    ),
+                    PasswordFieldWidget(
+                      isPasswordVisible: isPasswordVisible,
+                      onTap: () {
+                        setState(() {
+                          isPasswordVisible = !isPasswordVisible;
+                        });
+                      },
+                    )
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "registration page",
-                          style: TextStyle(color: Colors.white, fontSize: 30),
-                        ),
-                        SizedBox(
-                          height: 25,
-                        ),
-                        Text(
-                          "Create a new account",
-                          style: TextStyle(color: Colors.white, fontSize: 20),
-                        ),
-                        SizedBox(
-                          height: 50,
-                        ),
-                        TextFieldWidget(
-                            hintText: "Name", inputType: TextInputType.name),
-                        SizedBox(
-                          height: 25,
-                        ),
-                        TextFieldWidget(
-                            hintText: "Email",
-                            inputType: TextInputType.emailAddress),
-                        SizedBox(
-                          height: 25,
-                        ),
-                        TextFieldWidget(
-                            hintText: "phone number",
-                            inputType: TextInputType.phone),
-                        SizedBox(
-                          height: 25,
-                        ),
-                        PasswordFieldWidget(
-                          isPasswordVisible: passwordvisible,
-                          onTap: () {
-                            setState(() {
-                              passwordvisible = !passwordvisible;
-                            });
-                          },
-                        )
-                      ],
+                  const Text(
+                    "You already have an account? ",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(width: 7),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text(
+                      "Sign-in.",
+                      style: TextStyle(color: Colors.lightBlue),
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "You already have an account? ",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                      Text(
-                        "sign in",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                      SizedBox(
-                        height: 50,
-                      ),
-                    ],
-                  ),
-                  TextButtonWidget(
-                    buttonLabel: "registration ",
-                    onTap: () {},
-                    backgroundColor: Colors.white,
-                  ),
-                  SizedBox(height: 10)
                 ],
               ),
-            ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 50, top: 20),
+                child: TextButtonWidget(
+                  backgroundColor: Colors.white,
+                  buttonLabel: "Register",
+                  onTap: () {},
+                ),
+              ),
+            ],
           ),
-        ],
-      )),
+        ),
+      ),
     );
   }
 }

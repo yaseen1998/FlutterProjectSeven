@@ -14,7 +14,7 @@ class TextButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 60,
-      width: double.infinity,
+      width: 330,
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(20),

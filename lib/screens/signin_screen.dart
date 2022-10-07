@@ -52,12 +52,11 @@ class _SignInScreenState extends State<SignInScreen> {
                         fontSize: 18,
                       ),
                     ),
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 20),
                     const TextFieldWidget(
                       hintText: "E-mail",
                       inputType: TextInputType.text,
                     ),
-                    const SizedBox(height: 20),
                     PasswordFieldWidget(
                       isPasswordVisible: isPasswordVisible,
                       onTap: () {
@@ -70,7 +69,6 @@ class _SignInScreenState extends State<SignInScreen> {
                   ],
                 ),
               ),
-              //? Don't have an account text.
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -85,7 +83,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return Registration_Ppage();
+                            return const RegistrationScreen();
                           },
                         ),
                       );
@@ -111,9 +109,6 @@ class _SignInScreenState extends State<SignInScreen> {
                   },
                 ),
               ),
-              SizedBox(
-                height: 10,
-              )
             ],
           ),
         ),

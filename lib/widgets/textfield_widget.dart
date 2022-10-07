@@ -12,22 +12,22 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: TextField(
         style: const TextStyle(color: Colors.white),
         keyboardType: inputType,
         textInputAction: TextInputAction.next,
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(10),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 20),
           hintText: hintText,
-          hintStyle: const TextStyle(color: Colors.white),
+          hintStyle: const TextStyle(color: Colors.grey),
           enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.grey, width: 1),
-            borderRadius: BorderRadius.circular(18),
+            borderSide: const BorderSide(color: Colors.grey, width: 2),
+            borderRadius: BorderRadius.circular(10),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.white, width: 1),
-            borderRadius: BorderRadius.circular(18),
+            borderSide: const BorderSide(color: Colors.white, width: 2),
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
       ),

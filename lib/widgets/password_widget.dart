@@ -8,13 +8,14 @@ class PasswordFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: TextField(
         obscureText: isPasswordVisible,
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
         keyboardType: TextInputType.text,
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
+          contentPadding: const EdgeInsets.symmetric(horizontal: 20),
           suffixIcon: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: IconButton(
@@ -22,20 +23,20 @@ class PasswordFieldWidget extends StatelessWidget {
               highlightColor: Colors.transparent,
               onPressed: onTap,
               icon: Icon(
-                  isPasswordVisible ? Icons.visibility : Icons.visibility_off),
+                isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+              ),
               color: Colors.grey,
             ),
           ),
-          contentPadding: EdgeInsets.all(10),
           hintText: "Password",
-          hintStyle: const TextStyle(color: Colors.white),
+          hintStyle: const TextStyle(color: Colors.grey),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey, width: 1),
-            borderRadius: BorderRadius.circular(18),
+            borderSide: const BorderSide(color: Colors.grey, width: 2),
+            borderRadius: BorderRadius.circular(10),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.white, width: 1),
-            borderRadius: BorderRadius.circular(18),
+            borderSide: const BorderSide(color: Colors.white, width: 2),
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
       ),
