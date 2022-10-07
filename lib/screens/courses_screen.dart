@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import '../widgets/widgets.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
 class coursesScreen extends StatefulWidget {
   const coursesScreen({super.key});
 
@@ -14,13 +16,13 @@ class _coursesScreenState extends State<coursesScreen> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: Color(0xff191720),
+        backgroundColor: const Color(0xff191720),
         appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 43, 38, 61),
+          backgroundColor: const Color.fromARGB(255, 43, 38, 61),
           title: Column(
             children: [
               Row(
-                children: [
+                children: const [
                   Text(
                     "Welcome Back",
                     style: TextStyle(fontSize: 12, color: Colors.white),
@@ -28,7 +30,7 @@ class _coursesScreenState extends State<coursesScreen> {
                 ],
               ),
               Row(
-                children: [
+                children: const [
                   Text(
                     "shrek",
                     style: TextStyle(fontSize: 20, color: Colors.white),
@@ -37,41 +39,41 @@ class _coursesScreenState extends State<coursesScreen> {
               )
             ],
           ),
-          actions: [
+          actions: const [
             CircleAvatar(
               radius: 25,
               foregroundImage: AssetImage("images/avatar.jpg"),
             )
           ],
         ),
-        bottomNavigationBar: SizedBox(
+        bottomNavigationBar: CurvedNavigationBar(
+          backgroundColor: Colors.transparent,
+          animationDuration: Duration(milliseconds: 200),
+          items: [
+            Icon(
+              Icons.home_outlined,
+              color: Colors.white,
+            ),
+            Icon(
+              Ionicons.book_outline,
+              color: Colors.white,
+            ),
+          ],
+          color: Color.fromARGB(255, 57, 51, 82),
           height: 50,
-          child: AppBar(
-            backgroundColor: Color.fromARGB(255, 43, 38, 61),
-            title: TabBar(
-                indicatorSize: TabBarIndicatorSize.label,
-                indicatorColor: Color.fromARGB(255, 188, 73, 255),
-                tabs: [
-                  Icon(
-                    Icons.home_outlined,
-                    color: Colors.white,
-                  ),
-                  Icon(
-                    Ionicons.book_outline,
-                    color: Colors.white,
-                  )
-                ]),
-          ),
+          onTap: (index) {
+            print(index);
+          },
         ),
         body: Padding(
           padding: const EdgeInsets.only(left: 17, right: 17, top: 12),
           child: TabBarView(
             children: [
-              HomeTab(), //first tab
-              GradesTab(courseMark: [
+              const HomeTab(), //first tab
+              GradesTab(courseMark: const [
                 "4/4",
                 "3/4"
-              ], courseName: [
+              ], courseName: const [
                 "English Words",
                 "English numbers",
               ]), //second tab
@@ -96,32 +98,32 @@ class _GradesTabState extends State<GradesTab> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
+        const Text(
           "Grades",
           style: TextStyle(
               fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
         ),
         ListView.separated(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: widget.courseName.length,
           itemBuilder: (BuildContext context, int index) {
             return Row(
               children: [
                 Text(
                   "${widget.courseName[index]} :",
-                  style: TextStyle(fontSize: 18, color: Colors.white),
+                  style: const TextStyle(fontSize: 18, color: Colors.white),
                 ),
                 Text(
                   "${widget.courseMark[index]}",
-                  style: TextStyle(fontSize: 18, color: Colors.white),
+                  style: const TextStyle(fontSize: 18, color: Colors.white),
                 )
               ],
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
             );
           },
           separatorBuilder: (context, index) {
-            return SizedBox(
+            return const SizedBox(
               height: 10,
             );
           },

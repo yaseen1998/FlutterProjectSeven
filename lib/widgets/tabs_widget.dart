@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/screens/Topics.dart';
 import 'widgets.dart';
 
 class HomeTab extends StatefulWidget {
@@ -27,12 +28,23 @@ class _HomeTabState extends State<HomeTab> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            languagesBox(
-                Title: "English",
-                imagePath1: "images/united-states.png",
-                imagePath2: "images/united-kingdom.png",
-                imagePath3: "images/canada.png",
-                subTitle: "1.35 billion"),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (context) {
+                      return TopicsScreen();
+                    },
+                  ));
+                });
+              },
+              child: languagesBox(
+                  Title: "English",
+                  imagePath1: "images/united-states.png",
+                  imagePath2: "images/united-kingdom.png",
+                  imagePath3: "images/canada.png",
+                  subTitle: "1.35 billion"),
+            ),
             const SizedBox(
               width: 17,
             ),
