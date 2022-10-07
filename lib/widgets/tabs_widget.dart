@@ -13,7 +13,7 @@ class _HomeTabState extends State<HomeTab> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        Text(
+        const Text(
           "Top Languages ",
           style: TextStyle(
               fontSize: 20,
@@ -21,7 +21,7 @@ class _HomeTabState extends State<HomeTab> {
               fontWeight: FontWeight.w700,
               shadows: []),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Row(
@@ -33,7 +33,7 @@ class _HomeTabState extends State<HomeTab> {
                 imagePath2: "images/united-kingdom.png",
                 imagePath3: "images/canada.png",
                 subTitle: "1.35 billion"),
-            SizedBox(
+            const SizedBox(
               width: 17,
             ),
             languagesBox(
@@ -44,7 +44,7 @@ class _HomeTabState extends State<HomeTab> {
                 subTitle: "1,117 billion"),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 17,
         ),
         Row(
@@ -56,7 +56,7 @@ class _HomeTabState extends State<HomeTab> {
                 imagePath2: "images/nepal.png",
                 imagePath3: "images/mauritius.png",
                 subTitle: "615 million"),
-            SizedBox(
+            const SizedBox(
               width: 17,
             ),
             languagesBox(
@@ -67,41 +67,41 @@ class _HomeTabState extends State<HomeTab> {
                 subTitle: "534 million"),
           ],
         ),
-        Divider(
+        const Divider(
           height: 20,
           // color: Colors.grey,
           thickness: 1,
         ),
-        Text(
+        const Text(
           "Top Corses",
           style: TextStyle(
               fontSize: 20, color: Colors.white, fontWeight: FontWeight.w700),
         ),
-        Divider(
+        const Divider(
           height: 20,
           color: Colors.transparent,
         ),
-        coursesTab(),
-        Divider(
+        const coursesTab(),
+        const Divider(
           height: 20,
           // color: Colors.grey,
           thickness: 1,
         ),
-        Text(
+        const Text(
           "Reviews",
           style: TextStyle(
               fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
         ),
-        Divider(
+        const Divider(
           height: 20,
           color: Colors.transparent,
         ),
-        Divider(
+        const Divider(
           height: 20,
           color: Colors.transparent,
         ),
-        reviewsTab(),
-        Divider(
+        const reviewsTab(),
+        const Divider(
           height: 20,
           color: Colors.transparent,
         ),

@@ -4,9 +4,19 @@ import 'package:page_transition/page_transition.dart';
 import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 
-class WelcomeScreen extends StatelessWidget {
+
+class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreentate();
+}
+
+class _WelcomeScreentate extends State<WelcomeScreen>  {
+List youremail = ['test'];
+  List Password = ['test'];
+  String myemail = '';
+  String myPassword = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,20 +39,7 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const _ButtonWidget(),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _ButtonWidget extends StatelessWidget {
-  const _ButtonWidget();
-  @override
-  Widget build(BuildContext context) {
-    return Container(
+              Container(
       height: 60,
       margin: const EdgeInsets.symmetric(vertical: 50),
       decoration: BoxDecoration(
@@ -59,7 +56,20 @@ class _ButtonWidget extends StatelessWidget {
                 Navigator.push(
                   context,
                   PageTransition(
-                    child: Registration_Ppage(),
+                    child: Registration_Ppage(
+                       onChangemail: (value) {
+                            setState(() {
+                             youremail.add(value);
+                            });
+                          },
+                          onChangePassword: (value) {
+                            setState(() {
+                              Password.add(value);
+                            });
+                          },
+                          youremail: youremail,
+                          Password: Password,
+                    ),
                     type: PageTransitionType.bottomToTop,
                   ),
                 );
@@ -75,7 +85,11 @@ class _ButtonWidget extends StatelessWidget {
                   context,
                   PageTransition(
                     type: PageTransitionType.bottomToTop,
-                    child: const SignInScreen(),
+                    child: SignInScreen(
+                      youremail: youremail,
+                          Password: Password,
+                          
+                    ),
                   ),
                 );
               },
@@ -83,6 +97,13 @@ class _ButtonWidget extends StatelessWidget {
           ),
         ],
       ),
+    )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
+
+

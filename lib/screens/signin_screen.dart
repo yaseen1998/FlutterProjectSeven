@@ -2,11 +2,16 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:project/screens/courses_screen.dart';
+import 'package:project/widgets/LoginField.dart';
+import 'package:project/widgets/passwordLogin.dart';
 import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+  final List youremail;
+  final List Password;
+  SignInScreen({Key? key, required this.youremail, required this.Password})
+      : super(key: key);
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -14,6 +19,8 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   bool isPasswordVisible = true;
+  String myemail = '';
+  String myPassword = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,12 +60,22 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ),
                     const SizedBox(height: 40),
-                    const TextFieldWidget(
+                    LoginField(
                       hintText: "E-mail",
                       inputType: TextInputType.text,
+                      onChangedInput: (value) {
+                        setState(() {
+                          myemail = value;
+                        });
+                      },
                     ),
                     const SizedBox(height: 20),
-                    PasswordFieldWidget(
+                    PasswordLogin(
+                      onChangedInput: (value) {
+                        setState(() {
+                          myPassword = value;
+                        });
+                      },
                       isPasswordVisible: isPasswordVisible,
                       onTap: () {
                         setState(() {
@@ -80,16 +97,16 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   const SizedBox(width: 7),
                   GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return Registration_Ppage();
-                          },
-                        ),
-                      );
-                    },
+                    // onTap: () {
+                    //   Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) {
+                    //         return Registration_Ppage();
+                    //       },
+                    //     ),
+                    //   );
+                    // },
                     child: const Text(
                       "Register.",
                       style: TextStyle(color: Colors.lightBlue),
@@ -103,11 +120,21 @@ class _SignInScreenState extends State<SignInScreen> {
                   backgroundColor: Colors.grey.shade800,
                   buttonLabel: "Sign-in",
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
+                    if (widget.youremail.contains(myemail) &&
+                        widget.Password.contains(myPassword)) {
+                      Navigator.push(context, MaterialPageRoute(
                       builder: (context) {
                         return coursesScreen();
                       },
                     ));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Error in password or email"),
+                          duration: Duration(seconds: 5),
+                        ),
+                      );
+                    }
                   },
                 ),
               ),
