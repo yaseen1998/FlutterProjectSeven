@@ -54,6 +54,7 @@ class _ButtonWidget extends StatelessWidget {
           Expanded(
             child: TextButtonWidget(
               backgroundColor: Colors.white,
+              textColor: Color.fromARGB(255, 188, 73, 255),
               buttonLabel: "Register",
               onTap: () {
                 Navigator.push(
@@ -69,6 +70,7 @@ class _ButtonWidget extends StatelessWidget {
           Expanded(
             child: TextButtonWidget(
               backgroundColor: Colors.transparent,
+              textColor: Colors.white,
               buttonLabel: "Sign In",
               onTap: () {
                 Navigator.push(

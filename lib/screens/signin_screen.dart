@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:project/screens/courses_screen.dart';
+import 'package:project/screens/home_screen.dart';
 import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 
@@ -90,7 +90,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     },
                     child: const Text(
                       "Register.",
-                      style: TextStyle(color: Colors.lightBlue),
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 188, 73, 255),
+                      ),
                     ),
                   ),
                 ],
@@ -99,13 +101,17 @@ class _SignInScreenState extends State<SignInScreen> {
                 padding: const EdgeInsets.only(bottom: 50, top: 20),
                 child: TextButtonWidget(
                   backgroundColor: Colors.grey.shade800,
+                  textColor: Colors.white,
                   buttonLabel: "Sign-in",
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) {
-                        return coursesScreen();
-                      },
-                    ));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const HomeScreen();
+                        },
+                      ),
+                    );
                   },
                 ),
               ),

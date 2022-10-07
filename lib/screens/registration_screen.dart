@@ -82,7 +82,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     },
                     child: const Text(
                       "Sign-in.",
-                      style: TextStyle(color: Colors.lightBlue),
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 188, 73, 255),
+                      ),
                     ),
                   ),
                 ],
@@ -91,6 +93,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 padding: const EdgeInsets.only(bottom: 50, top: 20),
                 child: TextButtonWidget(
                   backgroundColor: Colors.white,
+                  textColor: const Color.fromARGB(255, 188, 73, 255),
                   buttonLabel: "Register",
                   onTap: () {},
                 ),
