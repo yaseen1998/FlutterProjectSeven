@@ -147,7 +147,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text("Error in sign-in information."),
-                          duration: Duration(seconds: 5),
+                          duration: Duration(seconds: 3),
                         ),
                       );
                     }

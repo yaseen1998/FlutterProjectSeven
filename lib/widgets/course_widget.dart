@@ -8,7 +8,7 @@ class CoursesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300,
+      height: 400,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
@@ -29,7 +29,7 @@ class CoursesWidget extends StatelessWidget {
                 );
               },
               child: Container(
-                width: 220,
+                width: 250,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 43, 38, 61),
                   borderRadius: BorderRadius.circular(10),
@@ -48,52 +48,65 @@ class CoursesWidget extends StatelessWidget {
                         image: NetworkImage(course.imageUrl),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 15,
-                        vertical: 10,
-                      ),
-                      child: Text(
-                        course.name,
-                        style: const TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 15),
-                      child: Row(
+                    SizedBox(
+                      height: 200,
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SizedBox(
-                            height: 50,
-                            width: 135,
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 25, bottom: 20, left: 15, right: 15),
                             child: Text(
-                              course.description,
+                              course.name,
                               style: const TextStyle(
-                                fontSize: 14,
-                                color: Colors.white,
-                                height: 1.2,
-                                overflow: TextOverflow.ellipsis
-                              ),
-                              maxLines: 3,
+                                  fontSize: 28,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  height: 1.2),
                             ),
                           ),
-                          Container(
-                            width: 40,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 188, 73, 255),
-                              borderRadius: BorderRadius.circular(25),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 15),
+                            child: SizedBox(
+                              height: 80,
+                              width: 240,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    height: 80,
+                                    width: 170,
+                                    child: Text(
+                                      course.description,
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                        color: Colors.white,
+                                        height: 1.2,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                      maxLines: 3,
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 40,
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                      color: const Color.fromARGB(
+                                          255, 188, 73, 255),
+                                      borderRadius: BorderRadius.circular(25),
+                                    ),
+                                    child: const Icon(
+                                      Icons.play_arrow,
+                                      color: Colors.white,
+                                      size: 25,
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
-                            child: const Icon(
-                              Icons.play_arrow,
-                              color: Colors.white,
-                              size: 25,
-                            ),
-                          )
+                          ),
                         ],
                       ),
                     )
