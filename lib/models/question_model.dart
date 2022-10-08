@@ -65,3 +65,26 @@ List<Question> grammarQuestion() {
   ));
   return list;
 }
+
+List<Question> speakingQuestion() {
+  List<Question> list = [];
+  list.add(Question(
+    "Did you ______ work tomorrow?",
+    [
+      Answer("start", true),
+      Answer("stopped", false),
+      Answer("started", false),
+      Answer("go", false),
+    ],
+  ));
+  list.add(Question(
+    "How are you ______ ?",
+    [
+      Answer("doing", false),
+      Answer("do", false),
+      Answer("does", true),
+      Answer("done", false),
+    ],
+  ));
+  return list;
+}

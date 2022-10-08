@@ -47,7 +47,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                   ),
                 )),
             SizedBox(
-              height: 100,
+              height: 120,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,

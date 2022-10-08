@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:lottie/lottie.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 
@@ -27,14 +29,49 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
-                children: const [
-                  Image(
-                    image: AssetImage("assets/images/team_illustration.png"),
+                children: [
+                  const SizedBox(height: 25),
+                  const Text(
+                    "Speaky",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 188, 73, 255),
+                      fontSize: 40,
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
-                  SizedBox(height: 50),
-                  Text(
-                    "Welcome to American English",
-                    style: TextStyle(color: Colors.white),
+                  Lottie.asset(
+                    'assets/lotties/lottie_learning.json',
+                    height: 300,
+                  ),
+                  SizedBox(
+                    height: 80,
+                    child: Row(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5),
+                          child: Text(
+                            "Get started and improve your ",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 19,
+                            ),
+                          ),
+                        ),
+                        DefaultTextStyle(
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 188, 73, 255),
+                            fontSize: 19,
+                          ),
+                          child: AnimatedTextKit(
+                            animatedTexts: [
+                              RotateAnimatedText('Grammar!'),
+                              RotateAnimatedText('Vocabulary!'),
+                              RotateAnimatedText('Speaking!'),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
