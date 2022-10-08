@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../models/models.dart';
 
@@ -16,37 +17,61 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const SizedBox(height: 20),
-          IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(Icons.arrow_back),
-          ),
-          Text(
-            "Question ${currentQuestionIndex + 1}/${widget.questionList.length.toString()}",
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 35,
-              fontWeight: FontWeight.w500,
+      backgroundColor: const Color(0xff191720),
+      body: SafeArea(
+        child: Column(
+          children: [
+            const SizedBox(height: 20),
+            IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                _questionWidget(),
-                const SizedBox(height: 50),
-                _answerList(),
-                _nextButton(),
-              ],
+            Container(
+              height: 100,
+              width: 370,
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+              ),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 43, 38, 61),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(
+                "Question ${currentQuestionIndex + 1}/${widget.questionList.length.toString()}",
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                ),
+              ),
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 43, 38, 61),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _questionWidget(),
+                    const SizedBox(height: 50),
+                    _answerList(),
+                    const SizedBox(height: 50),
+                    _nextButton(),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -59,8 +84,8 @@ class _QuizScreenState extends State<QuizScreen> {
         const SizedBox(height: 20),
         Text(
           widget.questionList[currentQuestionIndex].questionText,
-          style: TextStyle(
-            color: Colors.grey.shade700,
+          style: const TextStyle(
+            color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.w500,
           ),
@@ -83,21 +108,21 @@ class _QuizScreenState extends State<QuizScreen> {
     bool isSelected = answer == selectedAnswer;
     return Container(
       width: double.infinity,
-      margin: const EdgeInsets.symmetric(vertical: 7),
-      height: 75,
+      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+      height: 65,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(10),
           ),
           shadowColor: Colors.transparent,
-          side: BorderSide(
-            width: 2,
-            color: isSelected ? Colors.deepPurpleAccent : Colors.grey.shade300,
-          ),
-          foregroundColor:
-              isSelected ? Colors.deepPurpleAccent : Colors.grey.shade400,
-          backgroundColor: Colors.transparent,
+          // side: BorderSide(
+          //   width: 2,
+          // ),
+          foregroundColor: Colors.white,
+          backgroundColor: isSelected
+              ? const Color.fromARGB(255, 188, 73, 255)
+              : Color.fromARGB(255, 79, 73, 100),
         ),
         onPressed: () {
           if (selectedAnswer == null) {
@@ -132,10 +157,10 @@ class _QuizScreenState extends State<QuizScreen> {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(10),
           ),
           shadowColor: Colors.transparent,
-          backgroundColor: Colors.deepPurpleAccent,
+          backgroundColor: const Color.fromARGB(255, 188, 73, 255),
         ),
         onPressed: isAnswerSelected
             ? () {
@@ -212,12 +237,10 @@ class _QuizScreenState extends State<QuizScreen> {
                       fontSize: 15),
                 ),
                 onPressed: () {
-                  Navigator.of(context).popUntil((route) => route.isFirst);
-                  setState(() {
-                    currentQuestionIndex = 0;
-                    score = 0;
-                    selectedAnswer = null;
-                  });
+                  int count = 0;
+                  Navigator.of(context).popUntil(
+                    (_) => count++ >= 3,
+                  );
                 },
               ),
             ),

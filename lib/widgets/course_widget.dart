@@ -56,7 +56,7 @@ class CoursesWidget extends StatelessWidget {
                       child: Text(
                         course.name,
                         style: const TextStyle(
-                          fontSize: 18,
+                          fontSize: 15,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
@@ -67,11 +67,17 @@ class CoursesWidget extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            course.description,
-                            style: const TextStyle(
-                              fontSize: 15,
-                              color: Colors.white,
+                          SizedBox(
+                            height: 50,
+                            width: 135,
+                            child: Text(
+                              course.description,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                                overflow: TextOverflow.ellipsis
+                              ),
+                              maxLines: 3,
                             ),
                           ),
                           Container(
