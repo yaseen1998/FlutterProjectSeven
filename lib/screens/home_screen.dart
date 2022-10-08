@@ -46,7 +46,8 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: EdgeInsets.only(left: 17, right: 17, top: 12),
           child: TabBarView(
             children: [
-              HomeTab(), //first tab
+              HomeTab(),
+              GradeTab(),
             ],
           ),
         ),
@@ -55,57 +56,3 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-// GradesTab(courseMark: [
-// "4/4",
-// "3/4"
-// ], courseName: [
-// "English Words",
-// "English numbers",
-// ]), //second tab
-// class GradesTab extends StatefulWidget {
-//   GradesTab({required this.courseName, required this.courseMark});
-//   List courseName;
-//   List courseMark;
-//   @override
-//   State<GradesTab> createState() => _GradesTabState();
-// }
-
-// class _GradesTabState extends State<GradesTab> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: [
-//         Text(
-//           "Grades",
-//           style: TextStyle(
-//               fontSize: 20, color: Colors.white, fontWeight: FontWeight.w500),
-//         ),
-//         ListView.separated(
-//           shrinkWrap: true,
-//           physics: NeverScrollableScrollPhysics(),
-//           itemCount: widget.courseName.length,
-//           itemBuilder: (BuildContext context, int index) {
-//             return Row(
-//               children: [
-//                 Text(
-//                   "${widget.courseName[index]} :",
-//                   style: TextStyle(fontSize: 18, color: Colors.white),
-//                 ),
-//                 Text(
-//                   "${widget.courseMark[index]}",
-//                   style: TextStyle(fontSize: 18, color: Colors.white),
-//                 )
-//               ],
-//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//             );
-//           },
-//           separatorBuilder: (context, index) {
-//             return SizedBox(
-//               height: 10,
-//             );
-//           },
-//         ),
-//       ],
-//     );
-//   }
-// }

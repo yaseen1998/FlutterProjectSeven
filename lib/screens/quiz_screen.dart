@@ -1,10 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../models/models.dart';
 
 class QuizScreen extends StatefulWidget {
   final List<Question> questionList;
-  const QuizScreen(this.questionList, {super.key});
+  String grade;
+  QuizScreen(this.questionList, this.grade, {super.key});
   @override
   State<QuizScreen> createState() => _QuizScreenState();
 }
@@ -122,7 +122,7 @@ class _QuizScreenState extends State<QuizScreen> {
           foregroundColor: Colors.white,
           backgroundColor: isSelected
               ? const Color.fromARGB(255, 188, 73, 255)
-              : Color.fromARGB(255, 79, 73, 100),
+              : const Color.fromARGB(255, 79, 73, 100),
         ),
         onPressed: () {
           if (selectedAnswer == null) {
@@ -237,6 +237,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       fontSize: 15),
                 ),
                 onPressed: () {
+                  widget.grade = "$score/${widget.questionList.length}";
                   int count = 0;
                   Navigator.of(context).popUntil(
                     (_) => count++ >= 3,

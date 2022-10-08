@@ -103,7 +103,10 @@ class _VideoScreenState extends State<VideoScreen> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return QuizScreen(widget.course.list);
+                                  return QuizScreen(
+                                    widget.course.list,
+                                    widget.course.grade,
+                                  );
                                 },
                               ),
                             );
