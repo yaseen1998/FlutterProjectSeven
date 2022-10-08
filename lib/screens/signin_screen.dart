@@ -96,9 +96,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   const Text(
                     "Don't have an account",
                     style: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Cairo',
-                    ),
+                        color: Colors.white, fontFamily: 'Cairo', fontSize: 16),
                   ),
                   const SizedBox(width: 7),
                   GestureDetector(
@@ -124,6 +122,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: const Text(
                       "Register.",
                       style: TextStyle(
+                        fontSize: 16,
                         fontFamily: 'Cairo',
                         color: Color.fromARGB(255, 188, 73, 255),
                       ),
