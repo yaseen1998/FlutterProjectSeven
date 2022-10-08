@@ -16,6 +16,7 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xff191720),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -30,7 +31,7 @@ class _QuizScreenState extends State<QuizScreen> {
             "Question ${currentQuestionIndex + 1}/${widget.questionList.length.toString()}",
             style: const TextStyle(
               fontFamily: 'Cairo',
-              color: Colors.black,
+              color: Colors.white,
               fontSize: 35,
               fontWeight: FontWeight.w500,
             ),
@@ -62,7 +63,7 @@ class _QuizScreenState extends State<QuizScreen> {
           widget.questionList[currentQuestionIndex].questionText,
           style: TextStyle(
             fontFamily: 'Cairo',
-            color: Colors.grey.shade700,
+            color: Colors.white.withOpacity(0.9),
             fontSize: 20,
             fontWeight: FontWeight.w500,
           ),
@@ -117,7 +118,7 @@ class _QuizScreenState extends State<QuizScreen> {
         child: Text(
           answer.answerText,
           style: TextStyle(
-              fontFamily: 'Cairo', fontSize: 19, fontWeight: FontWeight.w500),
+              fontFamily: 'Cairo', fontSize: 20, fontWeight: FontWeight.w500),
         ),
       ),
     );
@@ -137,12 +138,12 @@ class _QuizScreenState extends State<QuizScreen> {
       height: 48,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          shadowColor: Colors.transparent,
-          backgroundColor: Colors.deepPurpleAccent,
-        ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            shadowColor: Colors.transparent,
+            backgroundColor: Colors.deepPurpleAccent,
+            disabledBackgroundColor: Colors.black54),
         onPressed: isAnswerSelected
             ? () {
                 if (isLastQuestion) {
@@ -158,7 +159,12 @@ class _QuizScreenState extends State<QuizScreen> {
                 }
               }
             : null,
-        child: const Text("Submit"),
+        child: const Text(
+          "Submit",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
     );
   }
@@ -170,7 +176,9 @@ class _QuizScreenState extends State<QuizScreen> {
     }
     String title = isPassed ? "Passed!" : "Failed..";
     return AlertDialog(
-      backgroundColor: isPassed ? Colors.green.shade400 : Colors.redAccent,
+      backgroundColor: isPassed
+          ? Color.fromARGB(255, 41, 143, 41)
+          : Color.fromARGB(255, 143, 41, 41),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
@@ -210,7 +218,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   shadowColor: Colors.transparent,
-                  backgroundColor: Colors.white,
+                  backgroundColor: Color(0xff191720),
                 ),
                 child: Text(
                   "Home",
@@ -221,7 +229,7 @@ class _QuizScreenState extends State<QuizScreen> {
                       fontSize: 15),
                 ),
                 onPressed: () {
-                  Navigator.of(context).popUntil((route) => route.isFirst);
+                  Navigator.popAndPushNamed(context, "homeScreen");
                   setState(() {
                     currentQuestionIndex = 0;
                     score = 0;

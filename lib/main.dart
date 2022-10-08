@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/screens/home_screen.dart';
 import 'package:project/screens/screens.dart';
 
 void main() {
@@ -10,7 +11,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      routes: {"homeScreen": (context) => HomeScreen()},
       debugShowCheckedModeBanner: false,
       home: WelcomeScreen(),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/screens/screens.dart';
 import '../widgets/widgets.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
@@ -9,13 +10,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<Widget> ActiveTabWidget = [
+    const HomeScreen(),
+  ];
+  int ActiveTab = 0;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+      initialIndex: ActiveTab,
       length: 3,
       child: Scaffold(
         backgroundColor: const Color(0xff191720),
         bottomNavigationBar: CurvedNavigationBar(
+          index: ActiveTab,
           color: const Color.fromARGB(255, 43, 38, 61),
           height: 50,
           backgroundColor: const Color(0xff191720),
@@ -42,19 +49,19 @@ class _HomeScreenState extends State<HomeScreen> {
             if (value == 0) {
               setState(
                 () {
-                  print(value);
+                  ActiveTab = 0;
                 },
               );
             } else if (value == 1) {
               setState(
                 () {
-                  print(value);
+                  ActiveTab = 1;
                 },
               );
             } else if (value == 2) {
               setState(
                 () {
-                  print(value);
+                  ActiveTab = 2;
                 },
               );
             }
@@ -62,11 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: const Padding(
           padding: EdgeInsets.only(left: 17, right: 17, top: 12),
-          child: TabBarView(
-            children: [
-              HomeTab(), //first tab
-            ],
-          ),
+          child: HomeTab(), //first tab
         ),
       ),
     );

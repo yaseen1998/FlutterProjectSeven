@@ -59,7 +59,8 @@ class _SignInScreenState extends State<SignInScreen> {
                   children: [
                     const Text(
                       "Welcome back!",
-                      style: TextStyle(fontFamily: 'Cairo',
+                      style: TextStyle(
+                        fontFamily: 'Cairo',
                         color: Colors.white,
                         fontSize: 18,
                       ),
@@ -94,7 +95,10 @@ class _SignInScreenState extends State<SignInScreen> {
                 children: [
                   const Text(
                     "Don't have an account",
-                    style: TextStyle(color: Colors.white,fontFamily: 'Cairo',),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Cairo',
+                    ),
                   ),
                   const SizedBox(width: 7),
                   GestureDetector(
@@ -119,7 +123,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     },
                     child: const Text(
                       "Register.",
-                      style: TextStyle(fontFamily: 'Cairo',
+                      style: TextStyle(
+                        fontFamily: 'Cairo',
                         color: Color.fromARGB(255, 188, 73, 255),
                       ),
                     ),
@@ -135,14 +140,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   onTap: () {
                     if (widget.emailList.contains(email) &&
                         widget.passwordList.contains(password)) {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const HomeScreen();
-                          },
-                        ),
-                      );
+                      Navigator.pushNamed(context, "homeScreen");
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
