@@ -156,12 +156,12 @@ class _QuizScreenState extends State<QuizScreen> {
       height: 48,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          shadowColor: Colors.transparent,
-          backgroundColor: const Color.fromARGB(255, 188, 73, 255),
-        ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            shadowColor: Colors.transparent,
+            backgroundColor: const Color.fromARGB(255, 188, 73, 255),
+            disabledForegroundColor: Color.fromARGB(255, 94, 87, 124)),
         onPressed: isAnswerSelected
             ? () {
                 if (isLastQuestion) {
@@ -189,7 +189,7 @@ class _QuizScreenState extends State<QuizScreen> {
     }
     String title = isPassed ? "Passed!" : "Failed..";
     return AlertDialog(
-      backgroundColor: isPassed ? Colors.green.shade400 : Colors.redAccent,
+      backgroundColor: isPassed ? Colors.green.shade500 : Colors.redAccent,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
@@ -227,14 +227,14 @@ class _QuizScreenState extends State<QuizScreen> {
                     borderRadius: BorderRadius.circular(15),
                   ),
                   shadowColor: Colors.transparent,
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.grey.shade800,
                 ),
-                child: Text(
+                child: const Text(
                   "Home",
                   style: TextStyle(
-                      color:
-                          isPassed ? Colors.green.shade400 : Colors.redAccent,
-                      fontSize: 15),
+                    color: Colors.white,
+                    fontSize: 15,
+                  ),
                 ),
                 onPressed: () {
                   widget.grade = "$score/${widget.questionList.length}";

@@ -56,6 +56,7 @@ class ReviewsWidget extends StatelessWidget {
                         color: Colors.grey.shade300,
                         fontSize: 17,
                         fontWeight: FontWeight.w400,
+                        height: 1.1,
                         overflow: TextOverflow.ellipsis,
                       ),
                       maxLines: 5,

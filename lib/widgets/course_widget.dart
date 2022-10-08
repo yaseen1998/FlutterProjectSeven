@@ -51,7 +51,7 @@ class CoursesWidget extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 15,
-                        vertical: 15,
+                        vertical: 10,
                       ),
                       child: Text(
                         course.name,
@@ -75,6 +75,7 @@ class CoursesWidget extends StatelessWidget {
                               style: const TextStyle(
                                 fontSize: 14,
                                 color: Colors.white,
+                                height: 1.2,
                                 overflow: TextOverflow.ellipsis
                               ),
                               maxLines: 3,

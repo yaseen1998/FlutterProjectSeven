@@ -19,7 +19,7 @@ class _HomeTabState extends State<HomeTab> {
           style: TextStyle(
             fontSize: 20,
             color: Colors.white,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w700,
           ),
         ),
         CoursesWidget(),
@@ -28,7 +28,7 @@ class _HomeTabState extends State<HomeTab> {
           style: TextStyle(
             fontSize: 20,
             color: Colors.white,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w700,
           ),
         ),
         ReviewsWidget(),

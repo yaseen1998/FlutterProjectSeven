@@ -12,7 +12,7 @@ class _GradesWidgetState extends State<GradesWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 1000,
+      height: 800,
       child: ListView.builder(
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.vertical,
@@ -57,9 +57,9 @@ class _GradesWidgetState extends State<GradesWidget> {
     return Text(
       quizTaken ? course.grade : "0/${course.list.length.toString()}",
       style: const TextStyle(
-        fontSize: 30,
+        fontSize: 28,
         color: Colors.white,
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w700,
       ),
     );
   }

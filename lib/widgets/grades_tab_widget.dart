@@ -19,7 +19,7 @@ class _GradeTabState extends State<GradeTab> {
           style: TextStyle(
             fontSize: 20,
             color: Colors.white,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w700,
           ),
         ),
         GradesWidget(),
