@@ -34,7 +34,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   SizedBox(height: 50),
                   Text(
                     "Welcome to American English",
-                    style: TextStyle(color: Colors.white,fontFamily: 'Cairo',),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontFamily: 'Cairo',
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500),
                   ),
                 ],
               ),
