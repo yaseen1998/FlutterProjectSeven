@@ -5,9 +5,15 @@ class Information extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: const Color(0xff191720),
       body: Column(
-        children: [],
+        children: [
+          Container(
+            width: 100,
+            height: 100,
+            color: Colors.red,
+          )
+        ],
       ),
     );
   }
