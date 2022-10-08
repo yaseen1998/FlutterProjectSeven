@@ -39,11 +39,13 @@ class ReviewsWidget extends StatelessWidget {
                           style: const TextStyle(
                               color: Colors.white,
                               fontSize: 18,
-                              fontWeight: FontWeight.w500),
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Cairo'),
                         ),
                         Text(
                           review.date,
                           style: const TextStyle(
+                            fontFamily: 'Cairo',
                             color: Color.fromARGB(255, 188, 73, 255),
                             fontSize: 13,
                           ),
@@ -57,8 +59,9 @@ class ReviewsWidget extends StatelessWidget {
                         fontSize: 17,
                         fontWeight: FontWeight.w400,
                         overflow: TextOverflow.ellipsis,
+                        fontFamily: 'Cairo',
                       ),
-                      maxLines: 5,
+                      maxLines: 3,
                     ),
                   ],
                 ),

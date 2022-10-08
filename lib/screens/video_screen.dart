@@ -84,7 +84,7 @@ class _VideoScreenState extends State<VideoScreen> {
                       children: [
                         Text(
                           widget.course.summery,
-                          style: const TextStyle(
+                          style: const TextStyle(fontFamily: 'Cairo',
                             color: Colors.white,
                             fontSize: 18,
                             height: 1.6,

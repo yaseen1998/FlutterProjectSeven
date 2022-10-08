@@ -29,6 +29,7 @@ class _QuizScreenState extends State<QuizScreen> {
           Text(
             "Question ${currentQuestionIndex + 1}/${widget.questionList.length.toString()}",
             style: const TextStyle(
+              fontFamily: 'Cairo',
               color: Colors.black,
               fontSize: 35,
               fontWeight: FontWeight.w500,
@@ -60,6 +61,7 @@ class _QuizScreenState extends State<QuizScreen> {
         Text(
           widget.questionList[currentQuestionIndex].questionText,
           style: TextStyle(
+            fontFamily: 'Cairo',
             color: Colors.grey.shade700,
             fontSize: 20,
             fontWeight: FontWeight.w500,
@@ -112,7 +114,11 @@ class _QuizScreenState extends State<QuizScreen> {
             selectedAnswer = answer;
           });
         },
-        child: Text(answer.answerText),
+        child: Text(
+          answer.answerText,
+          style: TextStyle(
+              fontFamily: 'Cairo', fontSize: 19, fontWeight: FontWeight.w500),
+        ),
       ),
     );
   }
@@ -179,6 +185,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 Text(
                   title,
                   style: const TextStyle(
+                    fontFamily: 'Cairo',
                     color: Colors.white,
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
@@ -188,6 +195,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 Text(
                   "$score/${widget.questionList.length}",
                   style: const TextStyle(
+                    fontFamily: 'Cairo',
                     color: Colors.white,
                   ),
                 ),
@@ -207,6 +215,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 child: Text(
                   "Home",
                   style: TextStyle(
+                      fontFamily: 'Cairo',
                       color:
                           isPassed ? Colors.green.shade400 : Colors.redAccent,
                       fontSize: 15),

@@ -17,19 +17,19 @@ class _HomeTabState extends State<HomeTab> {
         Text(
           "Popular Courses",
           style: TextStyle(
-            fontSize: 20,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+              fontSize: 20,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Cairo'),
         ),
         CoursesWidget(),
         Text(
           "Reviews",
           style: TextStyle(
-            fontSize: 20,
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+              fontSize: 20,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Cairo'),
         ),
         ReviewsWidget(),
       ],

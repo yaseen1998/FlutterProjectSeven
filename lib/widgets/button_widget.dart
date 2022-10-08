@@ -25,7 +25,7 @@ class TextButtonWidget extends StatelessWidget {
         onPressed: onTap,
         child: Text(
           buttonLabel,
-          style: TextStyle(
+          style: TextStyle(fontFamily: 'Cairo',
             color: textColor,
           ),
         ),

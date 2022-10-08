@@ -54,7 +54,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   children: [
                     const Text(
                       "Create a new account",
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+                      style: TextStyle(color: Colors.white, fontSize: 20,fontFamily: 'Cairo',),
                     ),
                     const SizedBox(height: 20),
                     const TextFieldWidget(
@@ -90,7 +90,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 children: [
                   const Text(
                     "You already have an account? ",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white,fontFamily: 'Cairo',),
                   ),
                   const SizedBox(width: 7),
                   GestureDetector(
@@ -100,7 +100,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     child: const Text(
                       "Sign-in.",
                       style: TextStyle(
-                        color: Color.fromARGB(255, 188, 73, 255),
+                        color: Color.fromARGB(255, 188, 73, 255),fontFamily: 'Cairo',
                       ),
                     ),
                   ),

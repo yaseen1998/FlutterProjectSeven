@@ -18,7 +18,10 @@ class PasswordFieldWidget extends StatelessWidget {
       child: TextField(
         obscureText: isPasswordVisible,
         onChanged: onChangedInput,
-        style: const TextStyle(color: Colors.white),
+        style: const TextStyle(
+          color: Colors.white,
+          fontFamily: 'Cairo',
+        ),
         keyboardType: TextInputType.text,
         textInputAction: TextInputAction.done,
         decoration: InputDecoration(
@@ -36,7 +39,10 @@ class PasswordFieldWidget extends StatelessWidget {
             ),
           ),
           hintText: "Password",
-          hintStyle: const TextStyle(color: Colors.grey),
+          hintStyle: const TextStyle(
+            color: Colors.grey,
+            fontFamily: 'Cairo',
+          ),
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.grey, width: 2),
             borderRadius: BorderRadius.circular(10),

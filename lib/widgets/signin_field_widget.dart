@@ -21,7 +21,7 @@ class SignInFieldWidget extends StatelessWidget {
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(horizontal: 20),
           hintText: "E-mail",
-          hintStyle: const TextStyle(color: Colors.grey),
+          hintStyle: const TextStyle(color: Colors.grey, fontFamily: 'Cairo'),
           enabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(color: Colors.grey, width: 2),
             borderRadius: BorderRadius.circular(10),

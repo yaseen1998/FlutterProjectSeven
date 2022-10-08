@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/widgets.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,33 +15,50 @@ class _HomeScreenState extends State<HomeScreen> {
       length: 3,
       child: Scaffold(
         backgroundColor: const Color(0xff191720),
-        bottomNavigationBar: SizedBox(
-          height: 60,
-          child: AppBar(
-            automaticallyImplyLeading: false,
-            backgroundColor: const Color.fromARGB(255, 43, 38, 61),
-            title: const TabBar(
-              indicatorSize: TabBarIndicatorSize.label,
-              indicatorColor: Color.fromARGB(255, 188, 73, 255),
-              tabs: [
-                Icon(
-                  Icons.home,
-                  color: Colors.white,
-                  size: 25,
-                ),
-                Icon(
-                  Icons.beenhere,
-                  color: Colors.white,
-                  size: 25,
-                ),
-                Icon(
-                  Icons.person,
-                  color: Colors.white,
-                  size: 25,
-                )
-              ],
+        bottomNavigationBar: CurvedNavigationBar(
+          color: const Color.fromARGB(255, 43, 38, 61),
+          height: 50,
+          backgroundColor: const Color(0xff191720),
+          // buttonBackgroundColor: const Color(0xff191720),
+          animationDuration: Duration(milliseconds: 200),
+          items: [
+            Icon(
+              Icons.home,
+              color: Colors.white,
+              size: 25,
             ),
-          ),
+            Icon(
+              Icons.beenhere,
+              color: Colors.white,
+              size: 25,
+            ),
+            Icon(
+              Icons.person,
+              color: Colors.white,
+              size: 25,
+            ),
+          ],
+          onTap: (value) {
+            if (value == 0) {
+              setState(
+                () {
+                  print(value);
+                },
+              );
+            } else if (value == 1) {
+              setState(
+                () {
+                  print(value);
+                },
+              );
+            } else if (value == 2) {
+              setState(
+                () {
+                  print(value);
+                },
+              );
+            }
+          },
         ),
         body: const Padding(
           padding: EdgeInsets.only(left: 17, right: 17, top: 12),

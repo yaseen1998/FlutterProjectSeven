@@ -55,7 +55,7 @@ class CoursesWidget extends StatelessWidget {
                       ),
                       child: Text(
                         course.name,
-                        style: const TextStyle(
+                        style: const TextStyle(fontFamily: 'Cairo',
                           fontSize: 18,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
@@ -69,7 +69,7 @@ class CoursesWidget extends StatelessWidget {
                         children: [
                           Text(
                             course.description,
-                            style: const TextStyle(
+                            style: const TextStyle(fontFamily: 'Cairo',
                               fontSize: 15,
                               color: Colors.white,
                             ),
