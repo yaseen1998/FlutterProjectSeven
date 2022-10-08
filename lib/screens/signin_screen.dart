@@ -6,7 +6,17 @@ import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+  final Function(String) onChangeEmail;
+  final Function(String) onChangePassword;
+  final List emailList;
+  final List passwordList;
+  const SignInScreen({
+    super.key,
+    required this.onChangeEmail,
+    required this.onChangePassword,
+    required this.emailList,
+    required this.passwordList,
+  });
 
   @override
   State<SignInScreen> createState() => _SignInScreenState();
@@ -14,9 +24,12 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   bool isPasswordVisible = true;
+  String email = '';
+  String password = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: const Color(0xff191720),
@@ -41,7 +54,6 @@ class _SignInScreenState extends State<SignInScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Flexible(
-                fit: FlexFit.loose,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -53,11 +65,20 @@ class _SignInScreenState extends State<SignInScreen> {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    const TextFieldWidget(
-                      hintText: "E-mail",
+                    SignInFieldWidget(
+                      onChangedInput: (value) {
+                        setState(() {
+                          email = value;
+                        });
+                      },
                       inputType: TextInputType.text,
                     ),
                     PasswordFieldWidget(
+                      onChangedInput: (value) {
+                        setState(() {
+                          password = value;
+                        });
+                      },
                       isPasswordVisible: isPasswordVisible,
                       onTap: () {
                         setState(() {
@@ -65,7 +86,6 @@ class _SignInScreenState extends State<SignInScreen> {
                         });
                       },
                     ),
-                    const SizedBox(height: 2),
                   ],
                 ),
               ),
@@ -83,7 +103,16 @@ class _SignInScreenState extends State<SignInScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return const RegistrationScreen();
+                            return RegistrationScreen(
+                              onChangeEmail: (value) {
+                                widget.onChangeEmail(value);
+                              },
+                              onChangePassword: (value) {
+                                widget.onChangePassword(value);
+                              },
+                              emailList: widget.emailList,
+                              passwordList: widget.passwordList,
+                            );
                           },
                         ),
                       );
@@ -104,14 +133,24 @@ class _SignInScreenState extends State<SignInScreen> {
                   textColor: Colors.white,
                   buttonLabel: "Sign-in",
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const HomeScreen();
-                        },
-                      ),
-                    );
+                    if (widget.emailList.contains(email) &&
+                        widget.passwordList.contains(password)) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const HomeScreen();
+                          },
+                        ),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Error in sign-in information."),
+                          duration: Duration(seconds: 5),
+                        ),
+                      );
+                    }
                   },
                 ),
               ),

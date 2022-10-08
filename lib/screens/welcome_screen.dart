@@ -4,9 +4,18 @@ import 'package:page_transition/page_transition.dart';
 import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  List emailList = ['test'];
+  List passwordList = ['test'];
+  String email = '';
+  String password = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,19 +38,15 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const _ButtonWidget(),
+              _buttonWidget()
             ],
           ),
         ),
       ),
     );
   }
-}
 
-class _ButtonWidget extends StatelessWidget {
-  const _ButtonWidget();
-  @override
-  Widget build(BuildContext context) {
+  _buttonWidget() {
     return Container(
       height: 60,
       margin: const EdgeInsets.symmetric(vertical: 50),
@@ -54,13 +59,26 @@ class _ButtonWidget extends StatelessWidget {
           Expanded(
             child: TextButtonWidget(
               backgroundColor: Colors.white,
-              textColor: Color.fromARGB(255, 188, 73, 255),
+              textColor: const Color.fromARGB(255, 188, 73, 255),
               buttonLabel: "Register",
               onTap: () {
                 Navigator.push(
                   context,
                   PageTransition(
-                    child: const RegistrationScreen(),
+                    child: RegistrationScreen(
+                      onChangeEmail: (value) {
+                        setState(() {
+                          emailList.add(value);
+                        });
+                      },
+                      onChangePassword: (value) {
+                        setState(() {
+                          passwordList.add(value);
+                        });
+                      },
+                      emailList: emailList,
+                      passwordList: passwordList,
+                    ),
                     type: PageTransitionType.bottomToTop,
                   ),
                 );
@@ -77,7 +95,20 @@ class _ButtonWidget extends StatelessWidget {
                   context,
                   PageTransition(
                     type: PageTransitionType.bottomToTop,
-                    child: const SignInScreen(),
+                    child: SignInScreen(
+                      onChangeEmail: (value) {
+                        setState(() {
+                          emailList.add(value);
+                        });
+                      },
+                      onChangePassword: (value) {
+                        setState(() {
+                          passwordList.add(value);
+                        });
+                      },
+                      emailList: emailList,
+                      passwordList: passwordList,
+                    ),
                   ),
                 );
               },

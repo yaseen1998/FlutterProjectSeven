@@ -2,15 +2,22 @@ import 'package:flutter/material.dart';
 
 class PasswordFieldWidget extends StatelessWidget {
   final bool isPasswordVisible;
+  Function(String) onChangedInput;
+
   final Function() onTap;
-  const PasswordFieldWidget(
-      {super.key, required this.isPasswordVisible, required this.onTap});
+  PasswordFieldWidget({
+    super.key,
+    required this.isPasswordVisible,
+    required this.onChangedInput,
+    required this.onTap,
+  });
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: TextField(
         obscureText: isPasswordVisible,
+        onChanged: onChangedInput,
         style: const TextStyle(color: Colors.white),
         keyboardType: TextInputType.text,
         textInputAction: TextInputAction.done,

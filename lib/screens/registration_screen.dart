@@ -3,7 +3,17 @@ import '../screens/screens.dart';
 import '../widgets/widgets.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  const RegistrationScreen({super.key});
+  final Function(String) onChangeEmail;
+  final Function(String) onChangePassword;
+  final List emailList;
+  final List passwordList;
+  const RegistrationScreen({
+    super.key,
+    required this.onChangeEmail,
+    required this.onChangePassword,
+    required this.emailList,
+    required this.passwordList,
+  });
 
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
@@ -14,21 +24,23 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: const Color(0xff191720),
         leading: IconButton(
-            onPressed: () {
-              Navigator.pop(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const WelcomeScreen();
-                  },
-                ),
-              );
-            },
-            icon: const Icon(Icons.arrow_back)),
+          onPressed: () {
+            Navigator.pop(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return const WelcomeScreen();
+                },
+              ),
+            );
+          },
+          icon: const Icon(Icons.arrow_back),
+        ),
       ),
       backgroundColor: const Color(0xff191720),
       body: SafeArea(
@@ -49,8 +61,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       hintText: "Full Name",
                       inputType: TextInputType.name,
                     ),
-                    const TextFieldWidget(
-                      hintText: "Email",
+                    SignInFieldWidget(
+                      onChangedInput: (value) {
+                        widget.onChangeEmail(value);
+                      },
                       inputType: TextInputType.emailAddress,
                     ),
                     const TextFieldWidget(
@@ -58,6 +72,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       inputType: TextInputType.phone,
                     ),
                     PasswordFieldWidget(
+                      onChangedInput: (value) {
+                        widget.onChangePassword(value);
+                      },
                       isPasswordVisible: isPasswordVisible,
                       onTap: () {
                         setState(() {
@@ -95,7 +112,25 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   backgroundColor: Colors.white,
                   textColor: const Color.fromARGB(255, 188, 73, 255),
                   buttonLabel: "Register",
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return SignInScreen(
+                            onChangeEmail: (value) {
+                              widget.onChangeEmail(value);
+                            },
+                            onChangePassword: (value) {
+                              widget.onChangePassword(value);
+                            },
+                            emailList: widget.emailList,
+                            passwordList: widget.passwordList,
+                          );
+                        },
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
