@@ -129,7 +129,7 @@ class _SignInScreenState extends State<SignInScreen> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 50, top: 20),
                 child: TextButtonWidget(
-                  backgroundColor: Colors.grey.shade800,
+                  backgroundColor: const Color.fromARGB(255, 79, 73, 100),
                   textColor: Colors.white,
                   buttonLabel: "Sign-in",
                   onTap: () {
@@ -139,7 +139,9 @@ class _SignInScreenState extends State<SignInScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return const HomeScreen();
+                            return HomeScreen(
+                              email,
+                            );
                           },
                         ),
                       );

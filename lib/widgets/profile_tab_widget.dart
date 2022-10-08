@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 import 'widgets.dart';
 
-class GradeTab extends StatefulWidget {
-  const GradeTab({super.key});
+class ProfileTab extends StatefulWidget {
+  final String email;
+  const ProfileTab(this.email, {super.key});
 
   @override
-  State<GradeTab> createState() => _GradeTabState();
+  State<ProfileTab> createState() => _ProfileTabState();
 }
 
-class _GradeTabState extends State<GradeTab> {
+class _ProfileTabState extends State<ProfileTab> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: const [
-        Text(
-          "Grades",
+      children: [
+        const Text(
+          "Profile",
           style: TextStyle(
             fontSize: 20,
             color: Colors.white,
             fontWeight: FontWeight.w700,
           ),
         ),
-        GradesWidget(),
+        ProfileWidget(widget.email),
       ],
     );
   }

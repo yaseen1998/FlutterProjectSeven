@@ -52,14 +52,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       margin: const EdgeInsets.symmetric(vertical: 50),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: Colors.grey.shade800,
+        color: const Color.fromARGB(255, 79, 73, 100),
       ),
       child: Row(
         children: [
           Expanded(
             child: TextButtonWidget(
-              backgroundColor: Colors.white,
-              textColor: const Color.fromARGB(255, 188, 73, 255),
+              backgroundColor: const Color.fromARGB(255, 43, 38, 61),
+              textColor: Colors.white,
               buttonLabel: "Register",
               onTap: () {
                 Navigator.push(

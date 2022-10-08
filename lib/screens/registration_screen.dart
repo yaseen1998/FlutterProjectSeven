@@ -109,8 +109,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 50, top: 20),
                 child: TextButtonWidget(
-                  backgroundColor: Colors.white,
-                  textColor: const Color.fromARGB(255, 188, 73, 255),
+                  backgroundColor: const Color.fromARGB(255, 43, 38, 61),
+                  textColor: Colors.white,
                   buttonLabel: "Register",
                   onTap: () {
                     Navigator.push(

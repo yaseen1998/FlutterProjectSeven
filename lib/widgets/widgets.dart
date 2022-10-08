@@ -6,3 +6,6 @@ export 'course_widget.dart';
 export 'signin_field_widget.dart';
 export 'grades_widget.dart';
 export 'grades_tab_widget.dart';
+export 'profile_tab_widget.dart';
+export 'profile_widget.dart';
+export 'signout_button_widget.dart';

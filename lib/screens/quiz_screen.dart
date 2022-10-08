@@ -116,9 +116,6 @@ class _QuizScreenState extends State<QuizScreen> {
             borderRadius: BorderRadius.circular(10),
           ),
           shadowColor: Colors.transparent,
-          // side: BorderSide(
-          //   width: 2,
-          // ),
           foregroundColor: Colors.white,
           backgroundColor: isSelected
               ? const Color.fromARGB(255, 188, 73, 255)
@@ -156,12 +153,13 @@ class _QuizScreenState extends State<QuizScreen> {
       height: 48,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            shadowColor: Colors.transparent,
-            backgroundColor: const Color.fromARGB(255, 188, 73, 255),
-            disabledForegroundColor: Color.fromARGB(255, 94, 87, 124)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          shadowColor: Colors.transparent,
+          backgroundColor: const Color.fromARGB(255, 188, 73, 255),
+          disabledForegroundColor: Color.fromARGB(255, 94, 87, 124),
+        ),
         onPressed: isAnswerSelected
             ? () {
                 if (isLastQuestion) {
