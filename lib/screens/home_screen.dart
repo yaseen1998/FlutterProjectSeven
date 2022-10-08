@@ -5,13 +5,24 @@ import '../widgets/widgets.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final String email;
+  
+  const HomeScreen({
+    super.key,
+    required this.email,
+  });
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Widget> ActiveTabWidget = [const HomeTab(), HomeTab(), Information()];
+  late List<Widget> ActiveTabWidget = [
+    const HomeTab(),
+    HomeTab(),
+    Information(
+      email: widget.email,
+    )
+  ];
   int ActiveTab = 0;
   @override
   Widget build(BuildContext context) {

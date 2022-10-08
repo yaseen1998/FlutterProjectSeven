@@ -139,7 +139,14 @@ class _SignInScreenState extends State<SignInScreen> {
                   onTap: () {
                     if (widget.emailList.contains(email) &&
                         widget.passwordList.contains(password)) {
-                      Navigator.pushNamed(context, "homeScreen");
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return HomeScreen(
+                           email:email,
+                           
+                          );
+                        },
+                      ));
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(

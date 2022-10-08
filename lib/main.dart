@@ -3,7 +3,7 @@ import 'package:project/screens/home_screen.dart';
 import 'package:project/screens/screens.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(home: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -11,10 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {"homeScreen": (context) => HomeScreen()},
-      debugShowCheckedModeBanner: false,
-      home: WelcomeScreen(),
-    );
+    return WelcomeScreen();
   }
 }

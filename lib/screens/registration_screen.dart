@@ -72,7 +72,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       inputType: TextInputType.emailAddress,
                     ),
                     const TextFieldWidget(
-                      hintText: "Phone number",
+                      hintText: "Phone neumbr",
                       inputType: TextInputType.phone,
                     ),
                     PasswordFieldWidget(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/screens/home_screen.dart';
 import '../models/models.dart';
 
 class QuizScreen extends StatefulWidget {
@@ -229,7 +230,14 @@ class _QuizScreenState extends State<QuizScreen> {
                       fontSize: 15),
                 ),
                 onPressed: () {
-                  Navigator.popAndPushNamed(context, "homeScreen");
+               Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return HomeScreen(
+                           email:""
+                           
+                          );
+                        },
+                  )   );
                   setState(() {
                     currentQuestionIndex = 0;
                     score = 0;
