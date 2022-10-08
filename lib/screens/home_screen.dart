@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/screens/screens.dart';
+import 'package:project/widgets/informationTab.dart';
 import '../widgets/widgets.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
@@ -10,9 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Widget> ActiveTabWidget = [
-    const HomeScreen(),
-  ];
+  List<Widget> ActiveTabWidget = [const HomeTab(), HomeTab(), Information()];
   int ActiveTab = 0;
   @override
   Widget build(BuildContext context) {
@@ -20,58 +19,56 @@ class _HomeScreenState extends State<HomeScreen> {
       initialIndex: ActiveTab,
       length: 3,
       child: Scaffold(
-        backgroundColor: const Color(0xff191720),
-        bottomNavigationBar: CurvedNavigationBar(
-          index: ActiveTab,
-          color: const Color.fromARGB(255, 43, 38, 61),
-          height: 50,
           backgroundColor: const Color(0xff191720),
-          // buttonBackgroundColor: const Color(0xff191720),
-          animationDuration: Duration(milliseconds: 200),
-          items: [
-            Icon(
-              Icons.home,
-              color: Colors.white,
-              size: 25,
-            ),
-            Icon(
-              Icons.beenhere,
-              color: Colors.white,
-              size: 25,
-            ),
-            Icon(
-              Icons.person,
-              color: Colors.white,
-              size: 25,
-            ),
-          ],
-          onTap: (value) {
-            if (value == 0) {
-              setState(
-                () {
-                  ActiveTab = 0;
-                },
-              );
-            } else if (value == 1) {
-              setState(
-                () {
-                  ActiveTab = 1;
-                },
-              );
-            } else if (value == 2) {
-              setState(
-                () {
-                  ActiveTab = 2;
-                },
-              );
-            }
-          },
-        ),
-        body: const Padding(
-          padding: EdgeInsets.only(left: 17, right: 17, top: 12),
-          child: HomeTab(), //first tab
-        ),
-      ),
+          bottomNavigationBar: CurvedNavigationBar(
+            index: ActiveTab,
+            color: const Color.fromARGB(255, 43, 38, 61),
+            height: 50,
+            backgroundColor: const Color(0xff191720),
+            // buttonBackgroundColor: const Color(0xff191720),
+            animationDuration: Duration(milliseconds: 200),
+            items: [
+              Icon(
+                Icons.home,
+                color: Colors.white,
+                size: 25,
+              ),
+              Icon(
+                Icons.beenhere,
+                color: Colors.white,
+                size: 25,
+              ),
+              Icon(
+                Icons.person,
+                color: Colors.white,
+                size: 25,
+              ),
+            ],
+            onTap: (value) {
+              if (value == 0) {
+                setState(
+                  () {
+                    ActiveTab = 0;
+                  },
+                );
+              } else if (value == 1) {
+                setState(
+                  () {
+                    ActiveTab = 1;
+                  },
+                );
+              } else if (value == 2) {
+                setState(
+                  () {
+                    ActiveTab = 2;
+                  },
+                );
+              }
+            },
+          ),
+          body: ActiveTabWidget[ActiveTab] //first tab
+
+          ),
     );
   }
 }

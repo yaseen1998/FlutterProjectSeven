@@ -14,22 +14,28 @@ class _HomeTabState extends State<HomeTab> {
   Widget build(BuildContext context) {
     return ListView(
       children: const [
-        Text(
-          "Popular Courses",
-          style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Cairo'),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+          child: Text(
+            "Popular Courses",
+            style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Cairo'),
+          ),
         ),
         CoursesWidget(),
-        Text(
-          "Reviews",
-          style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Cairo'),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+          child: Text(
+            "Reviews",
+            style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Cairo'),
+          ),
         ),
         ReviewsWidget(),
       ],
