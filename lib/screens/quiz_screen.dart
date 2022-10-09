@@ -62,9 +62,9 @@ class _QuizScreenState extends State<QuizScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     _questionWidget(),
-                    const SizedBox(height: 50),
+                    const SizedBox(height: 20),
                     _answerList(),
-                    const SizedBox(height: 50),
+                    const SizedBox(height: 20),
                     _nextButton(),
                   ],
                 ),
